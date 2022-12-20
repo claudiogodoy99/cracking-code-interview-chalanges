@@ -13,40 +13,46 @@ namespace data_structures
 
     public class Matrix
     {
-
-        public static int[][] Rotate(int[][] matrix) {
-
-            int rows = matrix.Length;
-            int cols = matrix[0].Length;
-
+      
+        public static void  Rotate(int[][] matrix) {
+            int total_rows = matrix.Length;
+            int total_colunms = matrix[0].Length;
             int tmp = 0;
 
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = i; j < cols; j++)
-                {
-                    if (i != j) { 
-                        tmp = matrix[i][j];
 
+            for (int i = 0; i < total_rows; i++)
+            {
+                if (matrix[i].Length != total_colunms) throw new Exception("All columns should have the same  length");
+
+                for (int j = i; j < total_colunms; j++)
+                {
+
+                    if (i != j)
+                    {
+                        tmp = matrix[i][j];
                         matrix[i][j] = matrix[j][i];
                         matrix[j][i] = tmp;
                     }
+
                 }
             }
 
-            for (int i = 0; i < rows; i++)
+            int last_index_colunm;
+            for (int i = 0; i < total_rows; i++)
             {
-                for (int j = 0; j < cols/2; j++)
+                for (int j = 0; j < total_colunms / 2; j++)
                 {
+                    last_index_colunm = total_colunms - 1 - j;
+
                     tmp = matrix[i][j];
 
-                    matrix[i][j] = matrix[i][cols - 1 - j];
-                    matrix[i][cols - 1 - j] = tmp;
+                    matrix[i][j] = matrix[i][last_index_colunm];
+                    matrix[i][last_index_colunm] = tmp;
                 }
             }
-
-            return matrix;
         }
+
+
 
         public static int[][] Transform(int[][] matrix) {
 

@@ -66,74 +66,29 @@ namespace data_structures
             prev.next = minor.next;
         
         }
+
         public static void RemoveDuplicates(node first) {
 
-            HashSet<int> set = new HashSet<int>();
+            node current = first;
+            node previus = first;
 
-            var current = first;
-            var prev = first;
+
+            HashSet<int> hash = new HashSet<int>();
 
             while (current != null)
             {
-                if (set.Contains(current.val))
+                if (hash.Contains(current.val))
                 {
-                    removeNode();
+                    previus.next = current.next;
                 }
-                else set.Add(current.val);
+                else {
+                    hash.Add(current.val);
+                }
 
-                prev = current; 
+                previus = current;
                 current = current.next;
             }
-
-            #region 
-            void removeNode() {
-                prev.next = current.next;
-            }
-            #endregion
-        }
-
-        public static node AddTwoNumber(node fisrt,node second) { 
         
-            Stack<int> stack_f = new Stack<int>();
-            Stack<int> stack_s = new Stack<int>();
-
-            node n = new node(0);
-
-
-            while (fisrt != null)
-            {
-                stack_f.Push(fisrt.val);
-                fisrt = fisrt.next;
-            }
-
-            while (second != null)
-            {
-                stack_s.Push(second.val);
-                second = second.next;
-            }
-
-            while (stack_f.Any() || stack_s.Any())
-            {
-                int a =0;
-                int b =0;
-                if (stack_f.Any()) { 
-                    a = stack_f.Pop();
-                }
-
-                if (stack_s.Any())
-                {
-                    b = stack_s.Pop();
-                }
-
-
-                //entender melhor como funciona essa soma e o sentido do carry 
-                int total = a + b;
-
-                n.val = total;
-
-                n = n.next;
-
-            }
         }
       
     }

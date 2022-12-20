@@ -165,28 +165,49 @@ namespace data_structures
             return newchar;
         }
 
-        public static bool IsPermutation(string a, string b)
+        //public static bool IsPermutation(string a, string b)
+        //{
+        //    if (a.Length != b.Length) return false;
+
+
+        //    int[][] char_set = new int[][]{ new int[256], new int[256] };
+
+        //    int char_code_a = 0;
+        //    int char_code_b = 0;
+
+        //    for (int i = 0; i < a.Length; i++)
+        //    {
+        //        char_code_a = (int)a[i];
+        //        char_code_b = (int)b[i];
+
+        //        char_set[0][char_code_a]++;
+        //        char_set[1][char_code_b]++;
+        //    }
+
+        //    for (int i = 0; i < 256; i++)
+        //    {
+        //        if (char_set[0][i] != char_set[1][i]) return false;
+        //    }
+
+        //    return true;
+        //}
+
+        public static bool IsPermutation(string a, string b) 
         {
             if (a.Length != b.Length) return false;
 
-
-            int[][] char_set = new int[][]{ new int[256], new int[256] };
-
-            int char_code_a = 0;
-            int char_code_b = 0;
+            int[] char_set_a = new int[256];
+            int[] char_set_b = new int[256];
 
             for (int i = 0; i < a.Length; i++)
             {
-                char_code_a = (int)a[i];
-                char_code_b = (int)b[i];
-
-                char_set[0][char_code_a]++;
-                char_set[1][char_code_b]++;
+                char_set_a[a[i]]++;
+                char_set_b[b[i]]++;
             }
 
             for (int i = 0; i < 256; i++)
             {
-                if (char_set[0][i] != char_set[1][i]) return false;
+                if (char_set_b[i] != char_set_a[i]) return false;
             }
 
             return true;
