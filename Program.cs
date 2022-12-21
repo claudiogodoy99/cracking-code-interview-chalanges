@@ -13,7 +13,6 @@ using static data_structures.LinkedListChalange;
 
 
 
-//Console.WriteLine(Strings.URLReplaceSpaces("o cav   "));
 
 //Strings.IsAReplaceEditOrInsert("pale", "pales");
 //Strings.IsAReplaceEditOrInsert("pales", "paled");
@@ -41,11 +40,13 @@ using static data_structures.LinkedListChalange;
 //}
 
 
-RunRotateMatrix();
+Console.WriteLine(Strings.URLReplaceSpaces("o cav s"));
 
-LinkedLists();
+//RunRotateMatrix();
 
-Permutation();
+//LinkedLists();
+
+//Permutation();
 
 void Permutation() {
     Console.WriteLine(Strings.IsPermutation("aaaaaa", "bbbbbb"));

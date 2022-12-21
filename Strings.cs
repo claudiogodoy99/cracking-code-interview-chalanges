@@ -123,10 +123,53 @@ namespace data_structures
             Console.WriteLine(new_str);
         }
 
-        public static char[] URLReplaceSpaces(string str) 
-        {
+        //public static char[] URLReplaceSpaces(string str) 
+        //{
+        //    int space_count = 0;
+        //    int true_length = 0;
+
+        //    for (int i = 0; i < str.Length; i++)
+        //    {
+        //        if (str[i] == ' ') space_count++;
+        //    }
+
+        //    for (int i = str.Length - 1; i >= 0; i--)
+        //    {
+        //        if (str[i] != ' ') { true_length = i; break; };
+        //        space_count--;
+        //    }
+
+
+        //    int new_length = true_length + space_count * 2;
+        //    char[] newchar = new char[new_length];
+
+        //    int offset = 0;
+
+        //    for (int i = 0; i < true_length ; i++)
+        //    {
+        //        if (str[i] == ' ')
+        //        {
+        //            newchar[offset] = '%';
+        //            newchar[offset + 1] = '2';
+        //            newchar[offset + 2] = '3';
+
+        //            offset += 3;
+        //        }
+        //        else 
+        //        {
+        //            newchar[offset] = str[i];
+        //            offset++;
+        //        }
+        //    }
+
+        //    return newchar;
+        //}
+
+        public static char[] URLReplaceSpaces(string str) {
+
             int space_count = 0;
-            int true_length = 0;
+            int new_length = 0;
+            int truly_length = 0;
 
             for (int i = 0; i < str.Length; i++)
             {
@@ -135,62 +178,45 @@ namespace data_structures
 
             for (int i = str.Length - 1; i >= 0; i--)
             {
-                if (str[i] != ' ') { true_length = i; break; };
-                space_count--;
-            }
-
-
-            int new_length = true_length + space_count * 2;
-            char[] newchar = new char[new_length];
-
-            int offset = 0;
-
-            for (int i = 0; i < true_length ; i++)
-            {
                 if (str[i] == ' ')
                 {
-                    newchar[offset] = '%';
-                    newchar[offset + 1] = '2';
-                    newchar[offset + 2] = '3';
-
-                    offset += 3;
+                    space_count--;
                 }
                 else 
                 {
-                    newchar[offset] = str[i];
-                    offset++;
+                    truly_length = i;
+                    break;
                 }
             }
 
-            return newchar;
+            if (space_count == 0) return str.ToCharArray();
+
+            new_length = str.Length + (space_count * 2) + 1;
+
+            char[] new_str = new char[new_length];
+
+            int index_new_str = 0;
+
+            for (int i = 0; i < truly_length; i++)
+                {
+                if (str[i] == ' ')
+                {
+                    new_str[index_new_str] = '0';
+                    new_str[index_new_str + 1] = '%';
+                    new_str[index_new_str + 2] = '2';
+
+                    index_new_str += 3;
+                }
+                else
+                {
+                    new_str[index_new_str] = str[i];
+                    index_new_str++;
+                }
+            }
+
+            return new_str;
+
         }
-
-        //public static bool IsPermutation(string a, string b)
-        //{
-        //    if (a.Length != b.Length) return false;
-
-
-        //    int[][] char_set = new int[][]{ new int[256], new int[256] };
-
-        //    int char_code_a = 0;
-        //    int char_code_b = 0;
-
-        //    for (int i = 0; i < a.Length; i++)
-        //    {
-        //        char_code_a = (int)a[i];
-        //        char_code_b = (int)b[i];
-
-        //        char_set[0][char_code_a]++;
-        //        char_set[1][char_code_b]++;
-        //    }
-
-        //    for (int i = 0; i < 256; i++)
-        //    {
-        //        if (char_set[0][i] != char_set[1][i]) return false;
-        //    }
-
-        //    return true;
-        //}
 
         public static bool IsPermutation(string a, string b) 
         {
