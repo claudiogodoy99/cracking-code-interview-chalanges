@@ -40,13 +40,27 @@ using static data_structures.LinkedListChalange;
 //}
 
 
-Console.WriteLine(Strings.URLReplaceSpaces("o cav s"));
+//Console.WriteLine(Strings.URLReplaceSpaces("o cav s "));
 
 //RunRotateMatrix();
 
 //LinkedLists();
 
 //Permutation();
+
+TBinarySearh();
+
+
+void TBinarySearh()
+{
+    long[] arr = new long[] { 1, 2, 6, 8, 9 };
+    long[] b = new long[] { 1, 2, 6, 8, 9 };
+    //var index = BinarySeach.Search(arr, 5, 6);
+    //Console.WriteLine(index);
+    //Console.WriteLine(arr[index]);
+
+    Console.Write(BinarySeach.check(b, arr, arr.Length) );
+}
 
 void Permutation() {
     Console.WriteLine(Strings.IsPermutation("aaaaaa", "bbbbbb"));

@@ -191,14 +191,14 @@ namespace data_structures
 
             if (space_count == 0) return str.ToCharArray();
 
-            new_length = str.Length + (space_count * 2) + 1;
+            new_length = truly_length + (space_count * 2) + 1;
 
             char[] new_str = new char[new_length];
 
             int index_new_str = 0;
 
-            for (int i = 0; i < truly_length; i++)
-                {
+            for (int i = 0; i <= truly_length; i++)
+            {
                 if (str[i] == ' ')
                 {
                     new_str[index_new_str] = '0';
