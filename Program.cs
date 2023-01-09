@@ -1,6 +1,7 @@
 ﻿using BenchmarkDotNet.Running;
 using data_structures;
 using Microsoft.Diagnostics.Runtime;
+using Microsoft.Diagnostics.Tracing.Parsers.Clr;
 using static data_structures.LinkedListChalange;
 
 //BenchmarkRunner.Run<LabHashTable>();
@@ -48,8 +49,18 @@ using static data_structures.LinkedListChalange;
 
 //Permutation();
 
-TBinarySearh();
+//TBinarySearh();
 
+LongCommonString();
+
+void LongCommonString()
+{
+    string[] strings = new string[] { "geeksforgeeks", "geezer", "d", "geeks", "geek" };
+
+    var returnd = BinarySeach.longestCommonPrefix(strings, strings.Length);
+
+    Console.WriteLine(returnd);
+}
 
 void TBinarySearh()
 {
