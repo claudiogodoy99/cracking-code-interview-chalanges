@@ -48,22 +48,22 @@ namespace data_structures
         }
 
         public static int Search(int[] arr, int n, int k) {
+            int mid = n / 2;
 
             int start = 0;
             int end = n - 1;
-            int middle = n/2;
 
+            while (start <= end)
+            {
+                if (arr[mid] == k) return mid;
 
-            while (start < end) {
+                if (arr[mid] < k) end = mid - 1;
+                else start = mid + 1;  
 
-                if (arr[middle] == k) return arr[middle];
-                else if (arr[middle] < k) end = middle - 1;
-                else start = middle + 1;
-
-                middle = (start + end) / 2;
+                mid = (start+ end) / 2;
             }
-
-            return -1;
+          
+            return-1;
          }
         public static string longestCommonPrefix(string[] arr, int n)
         {
@@ -112,28 +112,32 @@ namespace data_structures
 
         public static int firstElementKTime(int[] a, int n, int k)
         {
-            Dictionary<int, int> keyValues = new Dictionary<int, int>();
+            Dictionary<int, int> keyValuePairs= new Dictionary<int, int>();
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < n - 1; i++)
             {
-                int count;
-                keyValues.TryGetValue(a[n], out count);
+                int value ;
+                keyValuePairs.TryGetValue(a[i],out value);
 
-                if (count > 0)
+                if (value == 0)
                 {
-                    count = count++;
-
-                    if (count == k) return a[n];
-
-                    keyValues.Remove(a[n]);
-                    keyValues.Add(a[n], count);
+                    keyValuePairs.Add(a[i], 1);
                 }
                 else {
-                    keyValues.Add(a[n], 1);
+                    value++;
+
+                    if (value == k)
+                    {
+                        return i;
+                    }
+                    else {
+                        keyValuePairs.Remove(a[i]);
+                        keyValuePairs.Add(a[i],value);
+                    }
                 }
             }
-
             return -1;
+
         }
     }
 }

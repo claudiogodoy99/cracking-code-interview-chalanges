@@ -51,7 +51,31 @@ using static data_structures.LinkedListChalange;
 
 //TBinarySearh();
 
-LongCommonString();
+//LongCommonString();
+
+//FirstElementKTime();
+
+sort012s();
+
+void sort012s(){
+
+    int[] ins= new int[5] {0,1,1,0,2 };
+
+    ArrayChalange.Sort012s(ins);
+
+    for (int i = 0; i < ins.Length; i++)
+    {
+        Console.WriteLine(ins[i]);
+    }
+    
+}
+
+void FirstElementKTime() {
+    int[] ints = { 1, 7, 4, 3, 4, 8, 7 };
+    int k = 2;
+
+    Console.WriteLine(BinarySeach.firstElementKTime(ints,ints.Length, k));
+}
 
 void LongCommonString()
 {
@@ -64,13 +88,14 @@ void LongCommonString()
 
 void TBinarySearh()
 {
-    long[] arr = new long[] { 1, 2, 6, 8, 9 };
-    long[] b = new long[] { 1, 2, 6, 8, 9 };
-    //var index = BinarySeach.Search(arr, 5, 6);
-    //Console.WriteLine(index);
-    //Console.WriteLine(arr[index]);
+    int[] arr = new int[] { 1, 2, 6, 8, 9 };
+    //long[] b = new long[] { 1, 2, 6, 8, 9 };
 
-    Console.Write(BinarySeach.check(b, arr, arr.Length) );
+    var index = BinarySeach.Search(arr, 5, 6);
+    Console.WriteLine(index);
+    Console.WriteLine(arr[index]);
+
+    //Console.Write(BinarySeach.check(b, arr, arr.Length) );
 }
 
 void Permutation() {
