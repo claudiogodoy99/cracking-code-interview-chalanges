@@ -7,11 +7,32 @@ namespace data_structures
 {
     public static class ArrayChalange
     {
+        public static int MissingNumber(int[] array, int n) {
+
+            int total = 0 ;
+
+            int shouldBe =0;
+
+            int i = 0;
+
+            for (i = 0; i < array.Length; i++)
+            {
+
+                total += array[i];
+                shouldBe += i + 1 ;
+            }
+
+            shouldBe += i + 1;
+
+            int diference = shouldBe - total;
+
+            return diference;
+
+        }
         public static void Sort012s(int[] array)
         {
-            int mid = 0;
             int l = 0;
-
+            int mid = 0;
             int h = array.Length - 1;
 
             int tmp = 0;
@@ -20,14 +41,15 @@ namespace data_structures
             {
                 switch (array[mid])
                 {
+
                     case 0:
                         {
                             tmp = array[l];
                             array[l] = array[mid];
                             array[mid] = tmp;
-                            l++;
-                            mid++;
 
+                            l++;
+                            mid ++;
                             break;
                         }
                     case 1:
@@ -40,15 +62,14 @@ namespace data_structures
                             tmp = array[h];
                             array[h] = array[mid];
                             array[mid] = tmp;
+
                             h--;
                             mid++;
-
                             break;
                         }
                 }
 
             }
-
         }
 
         public static void Rotate(int[] array)

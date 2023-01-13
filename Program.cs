@@ -55,7 +55,19 @@ using static data_structures.LinkedListChalange;
 
 //FirstElementKTime();
 
-sort012s();
+//sort012s();
+
+MissingNumbers();
+
+
+void MissingNumbers()
+{
+
+    int[] ins = new int [9] { 6, 1, 2, 8, 3, 4, 7, 10, 5 };
+
+    Console.WriteLine(ArrayChalange.MissingNumber(ins, 10));
+
+}
 
 void sort012s(){
 
