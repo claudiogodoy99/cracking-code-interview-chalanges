@@ -1,12 +1,33 @@
 ﻿
 using Microsoft.Diagnostics.Tracing.Parsers.MicrosoftWindowsTCPIP;
 using System;
+using System.Collections;
+using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
 
 namespace data_structures
 {
     public static class ArrayChalange
     {
+        public static int[] leaders(int[] a, int n)
+        {
+            var leaders = new Stack<int>();
+
+            leaders.Push(a[n -1]);
+
+            int tmp = a[n-1];
+            for (int i = n - 2; i >=0 ; i--)
+            {
+               
+                if (tmp < a[i]) {
+
+                    tmp = a[i];
+                    leaders.Push(a[i]); 
+                }
+            }
+
+            return leaders.ToArray();
+        }
         public static int MissingNumber(int[] array, int n) {
 
             int total = 0 ;

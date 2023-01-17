@@ -57,7 +57,22 @@ using static data_structures.LinkedListChalange;
 
 //sort012s();
 
-MissingNumbers();
+//MissingNumbers();
+
+leaders();
+
+void leaders()
+{
+
+    int[] ins = new int[6] { 16, 17, 4, 3, 5, 2 };
+    var l = ArrayChalange.leaders(ins, ins.Length);
+    for (int i = 0; i < l.Length; i++)
+    {
+        Console.WriteLine(l[i]);
+    }
+    
+
+}
 
 
 void MissingNumbers()
