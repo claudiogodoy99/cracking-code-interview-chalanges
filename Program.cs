@@ -59,7 +59,22 @@ using static data_structures.LinkedListChalange;
 
 //MissingNumbers();
 
-leaders();
+//leaders();
+
+TransformOddPair();
+
+    void TransformOddPair() {
+    int[] ins = new int[6] { 16, 17, 4, 3, 5, 2 };
+    BitManipulation.TransformOddPair(ins);
+
+    for (int i = 0; i < ins.Length; i++)
+    {
+        Console.WriteLine(ins[i]);
+    }
+
+
+}
+
 
 void leaders()
 {
