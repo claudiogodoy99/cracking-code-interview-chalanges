@@ -19,24 +19,24 @@ namespace data_structures
 
             while (i < arr.Length)
             {
-                jump = arr[i];
-                if (jump == 0) {
-                    numberOfJupms--;
-                    break;
-                }
-
-                if (i == actualJumpIndex) {
-                    if (i + jump < lastPosition)
-                    {
-                        actualJumpIndex = i + jump;
-                        numberOfJupms++;
-                    }
-                    else
-                    {
-                        numberOfJupms++;
+                    jump = arr[i];
+                    if (jump == 0) {
+                        numberOfJupms--;
                         break;
                     }
-                }
+
+                    if (i == actualJumpIndex) {
+                        if (i + jump < lastPosition)
+                        {
+                            actualJumpIndex = i + jump;
+                            numberOfJupms++;
+                        }
+                        else
+                        {
+                            numberOfJupms++;
+                            break;
+                        }
+                    }
 
                 i++;
 
