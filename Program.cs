@@ -61,9 +61,17 @@ using static data_structures.LinkedListChalange;
 
 //leaders();
 
-TransformOddPair();
+//TransformOddPair();
 
-    void TransformOddPair() {
+MinJumps();
+void MinJumps(){
+    int[] ins = new int[10] { 2, 3, 1 ,1 ,2 ,4 ,2 ,0 ,1 ,1 };
+
+    Console.WriteLine(ArrayChalange.MinJumps(ins));
+}
+
+
+void TransformOddPair() {
     int[] ins = new int[6] { 16, 17, 4, 3, 5, 2 };
     BitManipulation.TransformOddPair(ins);
 

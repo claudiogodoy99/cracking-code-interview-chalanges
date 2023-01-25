@@ -9,6 +9,44 @@ namespace data_structures
 {
     public static class ArrayChalange
     {
+        public static int MinJumps(int[] arr)
+        {
+            int numberOfJupms = 0;
+            int i = 0;
+            int lastPosition = arr.Length - 1;
+            int actualJumpIndex = 0;
+            int jump = 0;
+
+            while (i < arr.Length)
+            {
+                jump = arr[i];
+                if (jump == 0) {
+                    numberOfJupms--;
+                    break;
+                }
+
+                if (i == actualJumpIndex) {
+                    if (i + jump < lastPosition)
+                    {
+                        actualJumpIndex = i + jump;
+                        numberOfJupms++;
+                    }
+                    else
+                    {
+                        numberOfJupms++;
+                        break;
+                    }
+                }
+
+                i++;
+
+                
+                
+            }
+
+            return numberOfJupms;
+        }
+
         public static int[] leaders(int[] a, int n)
         {
             var leaders = new Stack<int>();
