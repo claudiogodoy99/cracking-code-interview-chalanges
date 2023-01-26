@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.Diagnostics.Tracing.Parsers.JScript;
 using Microsoft.Diagnostics.Tracing.Parsers.MicrosoftWindowsTCPIP;
 using System;
 using System.Collections;
@@ -11,40 +12,37 @@ namespace data_structures
     {
         public static int MinJumps(int[] arr)
         {
-            int numberOfJupms = 0;
-            int i = 0;
-            int lastPosition = arr.Length - 1;
-            int actualJumpIndex = 0;
-            int jump = 0;
+
+            int jumps = 1;
+            int maxRechable = arr[0];
+            int stepLeft = arr[0];
+            int i = 1;
+
+            if (arr.Length == 1)  return 0; 
+            else if (arr[0] == 0) return -1;
+
+            
 
             while (i < arr.Length)
             {
-                    jump = arr[i];
-                    if (jump == 0) {
-                        numberOfJupms--;
-                        break;
-                    }
+                if (i == arr.Length - 1) return jumps;
 
-                    if (i == actualJumpIndex) {
-                        if (i + jump < lastPosition)
-                        {
-                            actualJumpIndex = i + jump;
-                            numberOfJupms++;
-                        }
-                        else
-                        {
-                            numberOfJupms++;
-                            break;
-                        }
-                    }
+                maxRechable = Math.Max(maxRechable, i + arr[i]);
+                stepLeft--;
+
+                if (stepLeft == 0) { 
+                    jumps++;
+                    //não entendi bem esse if
+                    if (maxRechable == i) return -1;
+
+                    //entender melhor este também
+                    stepLeft = maxRechable - i;
+                }
 
                 i++;
-
-                
-                
             }
 
-            return numberOfJupms;
+            return jumps;
         }
 
         public static int[] leaders(int[] a, int n)
